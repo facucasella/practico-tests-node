@@ -1,6 +1,6 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
-import { clasificar, promedio } from '../src/notas.js';
+import { clasificar, promedio, aprobados } from '../src/notas.js';
 
 describe('clasificar', () => {
   test('3.99 devuelve LIBRE (justo debajo del lÃ­mite 4)', () => {
@@ -39,5 +39,15 @@ describe('promedio', () => {
 
   test('lista vacÃ­a lanza error', () => {
     assert.throws(() => promedio([]));
+  });
+});
+
+describe('aprobados', () => {
+  test('[3, 6, 9, 5] devuelve [6, 9]', () => {
+    assert.deepEqual(aprobados([3, 6, 9, 5]), [6, 9]);
+  });
+
+  test('lista vacía devuelve lista vacía', () => {
+    assert.deepEqual(aprobados([]), []);
   });
 });

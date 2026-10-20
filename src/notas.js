@@ -12,3 +12,7 @@ export function promedio(notas) {
   const suma = notas.reduce((acc, n) => acc + n, 0);
   return suma / notas.length;
 }
+
+export function aprobados(notas) {
+  return notas.filter(n => n >= 6);
+}
